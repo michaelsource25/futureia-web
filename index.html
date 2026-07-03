@@ -1,0 +1,498 @@
+<title>futureIA — Automatización con Inteligencia Artificial</title>
+<meta name="description" content="futureIA ayuda a empresas de cualquier industria a automatizar procesos con inteligencia artificial: flujos de trabajo, agentes IA e integraciones a medida.">
+<style>
+  :root{
+    --bg:#05070d;
+    --bg-soft:#0b0f1a;
+    --card:#10141f;
+    --border:rgba(255,255,255,0.08);
+    --text:#e8ecf5;
+    --muted:#8b93a7;
+    --accent1:#7c5cff;
+    --accent2:#20d9d2;
+    --grad:linear-gradient(120deg,var(--accent1),var(--accent2));
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
+  h1,h2,h3{line-height:1.15;font-weight:700}
+  .gradient-text{
+    background:var(--grad);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .muted{color:var(--muted)}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 28px;border-radius:999px;
+    font-weight:600;font-size:15px;
+    transition:transform .2s ease, box-shadow .2s ease;
+    cursor:pointer;border:none;
+  }
+  .btn-primary{
+    background:var(--grad);color:#04060a;
+    box-shadow:0 8px 30px -8px rgba(124,92,255,0.6);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 36px -8px rgba(124,92,255,0.8)}
+  .btn-outline{
+    border:1px solid var(--border);color:var(--text);background:transparent;
+  }
+  .btn-outline:hover{border-color:var(--accent2);background:rgba(32,217,210,0.06)}
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(5,7,13,0.7);
+    border-bottom:1px solid var(--border);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1120px;margin:0 auto}
+  .logo{font-size:20px;font-weight:800;letter-spacing:-0.5px}
+  .logo span{color:var(--accent2)}
+  .nav-links{display:flex;gap:32px;font-size:15px;color:var(--muted)}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{display:flex;align-items:center;gap:16px}
+  .menu-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer}
+  .lang-toggle{
+    display:flex;align-items:center;gap:6px;
+    padding:8px 14px;border-radius:999px;
+    border:1px solid var(--border);background:transparent;color:var(--text);
+    font-size:13px;font-weight:600;cursor:pointer;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .lang-toggle:hover{border-color:var(--accent2);background:rgba(32,217,210,0.06)}
+
+  /* HERO */
+  .hero{
+    padding:180px 0 120px;
+    position:relative;
+    text-align:center;
+  }
+  .hero::before{
+    content:'';
+    position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+    width:900px;height:600px;
+    background:radial-gradient(ellipse at center, rgba(124,92,255,0.25), transparent 60%);
+    pointer-events:none;
+    z-index:-1;
+  }
+  .eyebrow{
+    display:inline-block;padding:6px 16px;border-radius:999px;
+    border:1px solid var(--border);font-size:13px;color:var(--accent2);
+    margin-bottom:24px;
+  }
+  .hero h1{font-size:56px;max-width:820px;margin:0 auto 20px}
+  .hero p{font-size:19px;color:var(--muted);max-width:600px;margin:0 auto 40px}
+  .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* SECTION HEADERS */
+  .section-head{text-align:center;max-width:640px;margin:0 auto 56px}
+  .section-head .eyebrow{margin-bottom:16px}
+  .section-head h2{font-size:36px;margin-bottom:16px}
+  .section-head p{color:var(--muted);font-size:17px}
+
+  /* SERVICES */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:32px;transition:transform .25s ease, border-color .25s ease;
+  }
+  .card:hover{transform:translateY(-4px);border-color:rgba(124,92,255,0.4)}
+  .card-icon{
+    width:48px;height:48px;border-radius:12px;background:var(--grad);
+    display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px;
+  }
+  .card h3{font-size:19px;margin-bottom:10px}
+  .card p{color:var(--muted);font-size:15px}
+
+  /* PROCESS */
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .step{position:relative;padding:28px 20px 20px;border:1px solid var(--border);border-radius:16px;background:var(--card)}
+  .step-num{
+    font-size:14px;font-weight:800;color:var(--accent2);
+    border:1px solid var(--border);width:32px;height:32px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+  }
+  .step h3{font-size:17px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:14px}
+
+  /* USE CASES */
+  .usecase-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .usecase{
+    display:flex;gap:16px;padding:24px;border:1px solid var(--border);border-radius:14px;background:var(--card);
+  }
+  .usecase .dot{
+    flex-shrink:0;width:10px;height:10px;border-radius:50%;background:var(--grad);margin-top:8px;
+  }
+  .usecase h3{font-size:16px;margin-bottom:6px}
+  .usecase p{color:var(--muted);font-size:14px}
+
+  /* ABOUT */
+  .about{
+    display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center;
+  }
+  .about-visual{
+    aspect-ratio:1;border-radius:24px;
+    background:linear-gradient(160deg, rgba(124,92,255,0.18), rgba(32,217,210,0.12));
+    border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;font-size:64px;
+  }
+  .about h2{font-size:32px;margin-bottom:16px}
+  .about p{color:var(--muted);margin-bottom:16px;font-size:16px}
+  .about ul{list-style:none;margin-top:20px}
+  .about li{display:flex;gap:10px;margin-bottom:10px;color:var(--text);font-size:15px}
+  .about li::before{content:'✓';color:var(--accent2);font-weight:800}
+
+  /* CONTACT */
+  .contact-box{
+    background:var(--card);border:1px solid var(--border);border-radius:24px;
+    padding:64px 48px;text-align:center;position:relative;overflow:hidden;
+  }
+  .contact-box::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at top, rgba(124,92,255,0.15), transparent 60%);
+    pointer-events:none;
+  }
+  .contact-box h2{font-size:32px;margin-bottom:12px}
+  .contact-box p{color:var(--muted);margin-bottom:32px;font-size:16px}
+
+  footer{
+    border-top:1px solid var(--border);padding:32px 0;text-align:center;color:var(--muted);font-size:14px;
+  }
+  footer .logo{justify-content:center}
+
+  .whatsapp-float{
+    position:fixed;bottom:24px;right:24px;z-index:60;
+    width:56px;height:56px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;
+    font-size:26px;box-shadow:0 8px 24px rgba(0,0,0,0.4);
+    transition:transform .2s ease;
+  }
+  .whatsapp-float:hover{transform:scale(1.08)}
+
+  [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
+  [data-reveal].visible{opacity:1;transform:translateY(0)}
+
+  @media (max-width:860px){
+    .grid{grid-template-columns:1fr 1fr}
+    .process-grid{grid-template-columns:1fr 1fr}
+    .usecase-grid{grid-template-columns:1fr}
+    .about{grid-template-columns:1fr}
+    .about-visual{max-width:280px;margin:0 auto}
+  }
+  @media (max-width:640px){
+    .nav-links{
+      position:fixed;top:64px;left:0;right:0;
+      background:var(--bg-soft);border-bottom:1px solid var(--border);
+      flex-direction:column;padding:24px;gap:20px;
+      transform:translateY(-150%);transition:transform .3s ease;
+    }
+    .nav-links.open{transform:translateY(0)}
+    .menu-toggle{display:block}
+    .nav-cta .btn-outline{display:none}
+    .hero h1{font-size:38px}
+    .hero p{font-size:16px}
+    .grid{grid-template-columns:1fr}
+    .process-grid{grid-template-columns:1fr}
+    section{padding:64px 0}
+    .contact-box{padding:40px 24px}
+  }
+</style>
+
+<header>
+  <nav>
+    <a href="#" class="logo">future<span>IA</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#servicios" data-i18n="nav_servicios">Servicios</a>
+      <a href="#proceso" data-i18n="nav_proceso">Cómo trabajamos</a>
+      <a href="#casos" data-i18n="nav_casos">Casos de uso</a>
+      <a href="#sobre-mi" data-i18n="nav_sobre">Sobre mí</a>
+      <a href="#contacto" data-i18n="nav_contacto">Contacto</a>
+    </div>
+    <div class="nav-cta">
+      <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma">🌐 EN</button>
+      <a href="#contacto" class="btn btn-outline" style="padding:10px 20px;font-size:14px" data-i18n="nav_cta">Contactar</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <span class="eyebrow" data-i18n="hero_eyebrow">Automatización impulsada por IA</span>
+    <h1 data-i18n="hero_h1" data-i18n-html>Automatizamos tu empresa con <span class="gradient-text">inteligencia artificial</span></h1>
+    <p data-i18n="hero_p">Diseñamos flujos de trabajo, agentes IA e integraciones a medida para que tu equipo deje de perder tiempo en tareas repetitivas — sin importar tu industria.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/18092679991?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20con%20IA" target="_blank" rel="noopener" class="btn btn-primary" data-wa-link data-i18n="hero_btn1">Hablemos por WhatsApp</a>
+      <a href="#servicios" class="btn btn-outline" data-i18n="hero_btn2">Ver servicios</a>
+    </div>
+  </section>
+
+  <section id="servicios" class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="serv_eyebrow">Servicios</span>
+      <h2 data-i18n="serv_h2">Todo lo que necesitas para automatizar</h2>
+      <p data-i18n="serv_p">Soluciones flexibles que se adaptan a cualquier tipo de empresa, sin importar el tamaño o el sector.</p>
+    </div>
+    <div class="grid">
+      <div class="card" data-reveal>
+        <div class="card-icon">⚙️</div>
+        <h3 data-i18n="serv1_h3">Automatización de procesos</h3>
+        <p data-i18n="serv1_p">Flujos de trabajo con n8n que conectan tus herramientas y eliminan tareas manuales repetitivas.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">🤖</div>
+        <h3 data-i18n="serv2_h3">Agentes y chatbots IA</h3>
+        <p data-i18n="serv2_p">Asistentes virtuales para atención al cliente, ventas o soporte interno, disponibles 24/7.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">🔗</div>
+        <h3 data-i18n="serv3_h3">Integración de sistemas</h3>
+        <p data-i18n="serv3_p">Conectamos tus apps, CRMs y bases de datos para que la información fluya sin fricción.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">📊</div>
+        <h3 data-i18n="serv4_h3">Reportes automatizados</h3>
+        <p data-i18n="serv4_p">Dashboards y reportes que se generan solos, con los datos siempre actualizados.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">🎨</div>
+        <h3 data-i18n="serv5_h3">Diseño de flujos</h3>
+        <p data-i18n="serv5_p">Mapeamos y documentamos tus procesos visualmente antes de automatizarlos.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">💡</div>
+        <h3 data-i18n="serv6_h3">Consultoría en IA</h3>
+        <p data-i18n="serv6_p">Te ayudamos a identificar dónde la automatización tendrá más impacto en tu negocio.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso" class="wrap" style="background:var(--bg-soft);border-radius:32px">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="proc_eyebrow">Proceso</span>
+      <h2 data-i18n="proc_h2">Cómo trabajamos</h2>
+      <p data-i18n="proc_p">Un proceso simple y transparente de principio a fin.</p>
+    </div>
+    <div class="process-grid">
+      <div class="step" data-reveal>
+        <div class="step-num">1</div>
+        <h3 data-i18n="step1_h3">Diagnóstico</h3>
+        <p data-i18n="step1_p">Analizamos tus procesos actuales y detectamos oportunidades de automatización.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-num">2</div>
+        <h3 data-i18n="step2_h3">Diseño del flujo</h3>
+        <p data-i18n="step2_p">Diseñamos la solución a medida, adaptada a tus herramientas y objetivos.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-num">3</div>
+        <h3 data-i18n="step3_h3">Implementación</h3>
+        <p data-i18n="step3_p">Construimos y probamos el flujo de automatización con IA en tu entorno real.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-num">4</div>
+        <h3 data-i18n="step4_h3">Soporte continuo</h3>
+        <p data-i18n="step4_p">Damos seguimiento, ajustamos y escalamos la solución según crece tu empresa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="casos" class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="casos_eyebrow">Casos de uso</span>
+      <h2 data-i18n="casos_h2">Lo que podemos automatizar por ti</h2>
+      <p data-i18n="casos_p">Algunos ejemplos de procesos que suelen automatizarse en distintas industrias.</p>
+    </div>
+    <div class="usecase-grid">
+      <div class="usecase" data-reveal>
+        <div class="dot"></div>
+        <div><h3 data-i18n="uc1_h3">Atención al cliente 24/7</h3><p data-i18n="uc1_p">Chatbot con IA que responde preguntas frecuentes y agenda citas automáticamente.</p></div>
+      </div>
+      <div class="usecase" data-reveal>
+        <div class="dot"></div>
+        <div><h3 data-i18n="uc2_h3">Seguimiento de leads</h3><p data-i18n="uc2_p">Captura, califica y da seguimiento a nuevos clientes potenciales sin intervención manual.</p></div>
+      </div>
+      <div class="usecase" data-reveal>
+        <div class="dot"></div>
+        <div><h3 data-i18n="uc3_h3">Gestión de inventario</h3><p data-i18n="uc3_p">Alertas y actualizaciones automáticas cuando el stock cambia o baja de un límite.</p></div>
+      </div>
+      <div class="usecase" data-reveal>
+        <div class="dot"></div>
+        <div><h3 data-i18n="uc4_h3">Reportes financieros</h3><p data-i18n="uc4_p">Consolidación automática de datos de ventas y gastos en un solo dashboard.</p></div>
+      </div>
+      <div class="usecase" data-reveal>
+        <div class="dot"></div>
+        <div><h3 data-i18n="uc5_h3">Onboarding de empleados</h3><p data-i18n="uc5_p">Flujos automáticos de bienvenida, documentos y accesos para nuevo personal.</p></div>
+      </div>
+      <div class="usecase" data-reveal>
+        <div class="dot"></div>
+        <div><h3 data-i18n="uc6_h3">Publicación de contenido</h3><p data-i18n="uc6_p">Programación y publicación automática de contenido en redes sociales.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre-mi" class="wrap">
+    <div class="about" data-reveal>
+      <div class="about-visual">🚀</div>
+      <div>
+        <span class="eyebrow" data-i18n="about_eyebrow">Sobre nosotros</span>
+        <h2 data-i18n="about_h2">Una agencia nueva, con foco en resultados reales</h2>
+        <p data-i18n="about_p1">futureIA nace con la misión de acercar la automatización con inteligencia artificial a cualquier empresa, sin importar su tamaño o industria.</p>
+        <p data-i18n="about_p2">Trabajamos con herramientas como n8n para construir flujos de trabajo a medida, y creemos que cada proceso repetitivo es una oportunidad de ahorrar tiempo y dinero.</p>
+        <ul>
+          <li data-i18n="about_li1">Soluciones a medida, no plantillas genéricas</li>
+          <li data-i18n="about_li2">Comunicación directa durante todo el proyecto</li>
+          <li data-i18n="about_li3">Enfoque en cualquier industria o sector</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="wrap">
+    <div class="contact-box" data-reveal>
+      <h2 data-i18n="contact_h2">¿Listo para automatizar tu empresa?</h2>
+      <p data-i18n="contact_p">Escríbenos por WhatsApp y conversemos sobre cómo la IA puede ayudarte a ahorrar tiempo.</p>
+      <a href="https://wa.me/18092679991?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20con%20IA" target="_blank" rel="noopener" class="btn btn-primary" data-wa-link data-i18n="contact_btn">💬 Escribir por WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#" class="logo" style="display:inline-flex">future<span>IA</span></a>
+    <p style="margin-top:12px" data-i18n="footer_p">© 2026 futureIA. Automatización con inteligencia artificial.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/18092679991" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">💬</a>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+  const translations = {
+    es: {
+      nav_servicios: "Servicios", nav_proceso: "Cómo trabajamos", nav_casos: "Casos de uso",
+      nav_sobre: "Sobre mí", nav_contacto: "Contacto", nav_cta: "Contactar",
+      hero_eyebrow: "Automatización impulsada por IA",
+      hero_h1: 'Automatizamos tu empresa con <span class="gradient-text">inteligencia artificial</span>',
+      hero_p: "Diseñamos flujos de trabajo, agentes IA e integraciones a medida para que tu equipo deje de perder tiempo en tareas repetitivas — sin importar tu industria.",
+      hero_btn1: "Hablemos por WhatsApp", hero_btn2: "Ver servicios",
+      serv_eyebrow: "Servicios", serv_h2: "Todo lo que necesitas para automatizar",
+      serv_p: "Soluciones flexibles que se adaptan a cualquier tipo de empresa, sin importar el tamaño o el sector.",
+      serv1_h3: "Automatización de procesos", serv1_p: "Flujos de trabajo con n8n que conectan tus herramientas y eliminan tareas manuales repetitivas.",
+      serv2_h3: "Agentes y chatbots IA", serv2_p: "Asistentes virtuales para atención al cliente, ventas o soporte interno, disponibles 24/7.",
+      serv3_h3: "Integración de sistemas", serv3_p: "Conectamos tus apps, CRMs y bases de datos para que la información fluya sin fricción.",
+      serv4_h3: "Reportes automatizados", serv4_p: "Dashboards y reportes que se generan solos, con los datos siempre actualizados.",
+      serv5_h3: "Diseño de flujos", serv5_p: "Mapeamos y documentamos tus procesos visualmente antes de automatizarlos.",
+      serv6_h3: "Consultoría en IA", serv6_p: "Te ayudamos a identificar dónde la automatización tendrá más impacto en tu negocio.",
+      proc_eyebrow: "Proceso", proc_h2: "Cómo trabajamos", proc_p: "Un proceso simple y transparente de principio a fin.",
+      step1_h3: "Diagnóstico", step1_p: "Analizamos tus procesos actuales y detectamos oportunidades de automatización.",
+      step2_h3: "Diseño del flujo", step2_p: "Diseñamos la solución a medida, adaptada a tus herramientas y objetivos.",
+      step3_h3: "Implementación", step3_p: "Construimos y probamos el flujo de automatización con IA en tu entorno real.",
+      step4_h3: "Soporte continuo", step4_p: "Damos seguimiento, ajustamos y escalamos la solución según crece tu empresa.",
+      casos_eyebrow: "Casos de uso", casos_h2: "Lo que podemos automatizar por ti",
+      casos_p: "Algunos ejemplos de procesos que suelen automatizarse en distintas industrias.",
+      uc1_h3: "Atención al cliente 24/7", uc1_p: "Chatbot con IA que responde preguntas frecuentes y agenda citas automáticamente.",
+      uc2_h3: "Seguimiento de leads", uc2_p: "Captura, califica y da seguimiento a nuevos clientes potenciales sin intervención manual.",
+      uc3_h3: "Gestión de inventario", uc3_p: "Alertas y actualizaciones automáticas cuando el stock cambia o baja de un límite.",
+      uc4_h3: "Reportes financieros", uc4_p: "Consolidación automática de datos de ventas y gastos en un solo dashboard.",
+      uc5_h3: "Onboarding de empleados", uc5_p: "Flujos automáticos de bienvenida, documentos y accesos para nuevo personal.",
+      uc6_h3: "Publicación de contenido", uc6_p: "Programación y publicación automática de contenido en redes sociales.",
+      about_eyebrow: "Sobre nosotros", about_h2: "Una agencia nueva, con foco en resultados reales",
+      about_p1: "futureIA nace con la misión de acercar la automatización con inteligencia artificial a cualquier empresa, sin importar su tamaño o industria.",
+      about_p2: "Trabajamos con herramientas como n8n para construir flujos de trabajo a medida, y creemos que cada proceso repetitivo es una oportunidad de ahorrar tiempo y dinero.",
+      about_li1: "Soluciones a medida, no plantillas genéricas", about_li2: "Comunicación directa durante todo el proyecto", about_li3: "Enfoque en cualquier industria o sector",
+      contact_h2: "¿Listo para automatizar tu empresa?",
+      contact_p: "Escríbenos por WhatsApp y conversemos sobre cómo la IA puede ayudarte a ahorrar tiempo.",
+      contact_btn: "💬 Escribir por WhatsApp",
+      footer_p: "© 2026 futureIA. Automatización con inteligencia artificial.",
+      wa_message: "Hola, quiero información sobre automatización con IA"
+    },
+    en: {
+      nav_servicios: "Services", nav_proceso: "How we work", nav_casos: "Use cases",
+      nav_sobre: "About us", nav_contacto: "Contact", nav_cta: "Contact us",
+      hero_eyebrow: "AI-powered automation",
+      hero_h1: 'We automate your business with <span class="gradient-text">artificial intelligence</span>',
+      hero_p: "We design workflows, AI agents, and custom integrations so your team stops wasting time on repetitive tasks — no matter your industry.",
+      hero_btn1: "Chat on WhatsApp", hero_btn2: "See services",
+      serv_eyebrow: "Services", serv_h2: "Everything you need to automate",
+      serv_p: "Flexible solutions that adapt to any type of company, regardless of size or sector.",
+      serv1_h3: "Process automation", serv1_p: "Workflows built with n8n that connect your tools and eliminate repetitive manual tasks.",
+      serv2_h3: "AI agents & chatbots", serv2_p: "Virtual assistants for customer service, sales, or internal support, available 24/7.",
+      serv3_h3: "System integration", serv3_p: "We connect your apps, CRMs, and databases so information flows without friction.",
+      serv4_h3: "Automated reporting", serv4_p: "Dashboards and reports that generate themselves, always up to date.",
+      serv5_h3: "Workflow design", serv5_p: "We map and document your processes visually before automating them.",
+      serv6_h3: "AI consulting", serv6_p: "We help you identify where automation will have the biggest impact on your business.",
+      proc_eyebrow: "Process", proc_h2: "How we work", proc_p: "A simple, transparent process from start to finish.",
+      step1_h3: "Diagnosis", step1_p: "We analyze your current processes and find automation opportunities.",
+      step2_h3: "Workflow design", step2_p: "We design a custom solution, tailored to your tools and goals.",
+      step3_h3: "Implementation", step3_p: "We build and test the AI automation workflow in your real environment.",
+      step4_h3: "Ongoing support", step4_p: "We follow up, fine-tune, and scale the solution as your company grows.",
+      casos_eyebrow: "Use cases", casos_h2: "What we can automate for you",
+      casos_p: "Some examples of processes commonly automated across industries.",
+      uc1_h3: "24/7 customer support", uc1_p: "AI chatbot that answers frequent questions and books appointments automatically.",
+      uc2_h3: "Lead follow-up", uc2_p: "Capture, qualify, and follow up with new leads without manual work.",
+      uc3_h3: "Inventory management", uc3_p: "Automatic alerts and updates when stock changes or drops below a threshold.",
+      uc4_h3: "Financial reporting", uc4_p: "Automatic consolidation of sales and expense data into a single dashboard.",
+      uc5_h3: "Employee onboarding", uc5_p: "Automatic welcome flows, documents, and access for new staff.",
+      uc6_h3: "Content publishing", uc6_p: "Automatic scheduling and publishing of content on social media.",
+      about_eyebrow: "About us", about_h2: "A new agency, focused on real results",
+      about_p1: "futureIA was born with the mission of bringing AI automation to any company, regardless of size or industry.",
+      about_p2: "We work with tools like n8n to build custom workflows, and we believe every repetitive process is an opportunity to save time and money.",
+      about_li1: "Custom solutions, not generic templates", about_li2: "Direct communication throughout the project", about_li3: "Focus on any industry or sector",
+      contact_h2: "Ready to automate your business?",
+      contact_p: "Message us on WhatsApp and let's talk about how AI can help you save time.",
+      contact_btn: "💬 Chat on WhatsApp",
+      footer_p: "© 2026 futureIA. AI-powered automation.",
+      wa_message: "Hi, I'd like information about AI automation"
+    }
+  };
+
+  const langToggle = document.getElementById('langToggle');
+  let currentLang = 'es';
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = translations[lang][key];
+      if (val == null) return;
+      if (el.hasAttribute('data-i18n-html')) el.innerHTML = val;
+      else el.textContent = val;
+    });
+    const msg = encodeURIComponent(translations[lang].wa_message);
+    document.querySelectorAll('[data-wa-link]').forEach(a => {
+      a.href = `https://wa.me/18092679991?text=${msg}`;
+    });
+    langToggle.textContent = lang === 'es' ? '🌐 EN' : '🌐 ES';
+    localStorage.setItem('futureia_lang', lang);
+    currentLang = lang;
+  }
+
+  langToggle.addEventListener('click', () => setLang(currentLang === 'es' ? 'en' : 'es'));
+
+  const savedLang = localStorage.getItem('futureia_lang') || (navigator.language.toLowerCase().startsWith('en') ? 'en' : 'es');
+  setLang(savedLang);
+</script>
