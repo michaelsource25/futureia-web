@@ -205,19 +205,6 @@
   .contact-box h2{font-size:32px;margin-bottom:12px}
   .contact-box p{color:var(--muted);margin-bottom:32px;font-size:16px}
 
-  /* COURSE */
-  .course-box{
-    background:linear-gradient(160deg, rgba(124,92,255,0.1), rgba(32,217,210,0.06));
-    border:1px solid var(--border);border-radius:24px;
-    padding:56px;text-align:center;
-  }
-  .course-box .eyebrow{border-color:var(--accent2);color:var(--accent2)}
-  .course-box h2{font-size:32px;margin-bottom:16px;max-width:640px;margin-left:auto;margin-right:auto}
-  .course-box>p{color:var(--muted);font-size:16px;max-width:560px;margin:0 auto 32px}
-  .course-list{list-style:none;display:inline-flex;flex-direction:column;gap:12px;text-align:left;margin-bottom:36px}
-  .course-list li{display:flex;gap:10px;font-size:15px;color:var(--text)}
-  .course-list li::before{content:'✓';color:var(--accent2);font-weight:800;flex-shrink:0}
-
   footer{
     border-top:1px solid var(--border);padding:32px 0;text-align:center;color:var(--muted);font-size:14px;
   }
@@ -268,7 +255,6 @@
       <a href="#servicios" data-i18n="nav_servicios">Servicios</a>
       <a href="#proceso" data-i18n="nav_proceso">Cómo trabajamos</a>
       <a href="#casos" data-i18n="nav_casos">Casos de uso</a>
-      <a href="#curso" data-i18n="nav_curso">Curso</a>
       <a href="#sobre-mi" data-i18n="nav_sobre">Sobre mí</a>
       <a href="#contacto" data-i18n="nav_contacto">Contacto</a>
     </div>
@@ -396,22 +382,6 @@
     </div>
   </section>
 
-  <section id="curso" class="wrap">
-    <div class="course-box" data-reveal>
-      <span class="eyebrow" data-i18n="curso_eyebrow">Nuevo: Curso gratis</span>
-      <h2 data-i18n="curso_h2">Aprende a automatizar con Claude + n8n</h2>
-      <p data-i18n="curso_p">Un mini-curso gratuito donde te enseño paso a paso cómo conectar Claude (IA de Anthropic) con n8n para crear tus propios flujos automatizados, sin importar tu nivel técnico.</p>
-      <ul class="course-list">
-        <li data-i18n="curso_li1">Qué es n8n y cómo crear tu primer flujo automatizado</li>
-        <li data-i18n="curso_li2">Cómo conectar Claude para construir agentes inteligentes</li>
-        <li data-i18n="curso_li3">Estrategias reales para aplicarlo en tu propio negocio</li>
-      </ul>
-      <div>
-        <a href="https://wa.me/18092679991?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20curso%20gratis%20de%20Claude%20%2B%20n8n" target="_blank" rel="noopener" class="btn btn-primary" data-wa-link data-i18n="curso_btn">Quiero el curso gratis</a>
-      </div>
-    </div>
-  </section>
-
   <section id="sobre-mi" class="wrap">
     <div class="about" data-reveal>
       <div class="about-visual">🚀</div>
@@ -464,7 +434,7 @@
   const translations = {
     es: {
       nav_servicios: "Servicios", nav_proceso: "Cómo trabajamos", nav_casos: "Casos de uso",
-      nav_sobre: "Sobre mí", nav_contacto: "Contacto", nav_cta: "Contactar", nav_curso: "Curso",
+      nav_sobre: "Sobre mí", nav_contacto: "Contacto", nav_cta: "Contactar",
       hero_eyebrow: "Automatización impulsada por IA",
       hero_h1: 'Automatizamos tu empresa con <span class="gradient-text">inteligencia artificial</span>',
       hero_p: "Diseñamos flujos de trabajo, agentes IA e integraciones a medida para que tu equipo deje de perder tiempo en tareas repetitivas — sin importar tu industria.",
@@ -497,19 +467,12 @@
       contact_h2: "¿Listo para automatizar tu empresa?",
       contact_p: "Escríbenos por WhatsApp y conversemos sobre cómo la IA puede ayudarte a ahorrar tiempo.",
       contact_btn: "💬 Escribir por WhatsApp",
-      curso_eyebrow: "Nuevo: Curso gratis",
-      curso_h2: "Aprende a automatizar con Claude + n8n",
-      curso_p: "Un mini-curso gratuito donde te enseño paso a paso cómo conectar Claude (IA de Anthropic) con n8n para crear tus propios flujos automatizados, sin importar tu nivel técnico.",
-      curso_li1: "Qué es n8n y cómo crear tu primer flujo automatizado",
-      curso_li2: "Cómo conectar Claude para construir agentes inteligentes",
-      curso_li3: "Estrategias reales para aplicarlo en tu propio negocio",
-      curso_btn: "Quiero el curso gratis",
       footer_p: "© 2026 futureIA. Automatización con inteligencia artificial.",
       wa_message: "Hola, quiero información sobre automatización con IA"
     },
     en: {
       nav_servicios: "Services", nav_proceso: "How we work", nav_casos: "Use cases",
-      nav_sobre: "About us", nav_contacto: "Contact", nav_cta: "Contact us", nav_curso: "Course",
+      nav_sobre: "About us", nav_contacto: "Contact", nav_cta: "Contact us",
       hero_eyebrow: "AI-powered automation",
       hero_h1: 'We automate your business with <span class="gradient-text">artificial intelligence</span>',
       hero_p: "We design workflows, AI agents, and custom integrations so your team stops wasting time on repetitive tasks — no matter your industry.",
@@ -542,13 +505,6 @@
       contact_h2: "Ready to automate your business?",
       contact_p: "Message us on WhatsApp and let's talk about how AI can help you save time.",
       contact_btn: "💬 Chat on WhatsApp",
-      curso_eyebrow: "New: Free course",
-      curso_h2: "Learn to automate with Claude + n8n",
-      curso_p: "A free mini-course where I teach you step by step how to connect Claude (Anthropic's AI) with n8n to build your own automated workflows, no matter your technical level.",
-      curso_li1: "What n8n is and how to build your first automated workflow",
-      curso_li2: "How to connect Claude to build intelligent agents",
-      curso_li3: "Real strategies to apply it in your own business",
-      curso_btn: "I want the free course",
       footer_p: "© 2026 futureIA. AI-powered automation.",
       wa_message: "Hi, I'd like information about AI automation"
     }
