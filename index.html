@@ -183,11 +183,12 @@
     display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center;
   }
   .about-visual{
-    aspect-ratio:1;border-radius:24px;
+    aspect-ratio:1;border-radius:24px;overflow:hidden;
     background:linear-gradient(160deg, rgba(124,92,255,0.18), rgba(32,217,210,0.12));
     border:1px solid var(--border);
     display:flex;align-items:center;justify-content:center;font-size:64px;
   }
+  .about-visual img{width:100%;height:100%;object-fit:cover;display:block}
   .about h2{font-size:32px;margin-bottom:16px}
   .about p{color:var(--muted);margin-bottom:16px;font-size:16px}
   .about ul{list-style:none;margin-top:20px}
@@ -389,12 +390,12 @@
 
   <section id="sobre-mi" class="wrap">
     <div class="about" data-reveal>
-      <div class="about-visual">🚀</div>
+      <div class="about-visual"><img src="michael.jpg" alt="Michael Antonio Acosta Sosa — fundador de futureIA"></div>
       <div>
-        <span class="eyebrow" data-i18n="about_eyebrow">Sobre nosotros</span>
-        <h2 data-i18n="about_h2">Una agencia nueva, con foco en resultados reales</h2>
-        <p data-i18n="about_p1">futureIA nace con la misión de acercar la automatización con inteligencia artificial a cualquier empresa, sin importar su tamaño o industria.</p>
-        <p data-i18n="about_p2">Trabajamos con herramientas como n8n para construir flujos de trabajo a medida, y creemos que cada proceso repetitivo es una oportunidad de ahorrar tiempo y dinero.</p>
+        <span class="eyebrow" data-i18n="about_eyebrow">Sobre mí</span>
+        <h2 data-i18n="about_h2">Michael Antonio Acosta Sosa</h2>
+        <p data-i18n="about_p1">Fundador y dueño de futureIA. Desarrollador de software y especialista en automatizaciones con inteligencia artificial.</p>
+        <p data-i18n="about_p2">Diseño y construyo flujos de trabajo a medida con herramientas como n8n, integrando IA para que cada proceso repetitivo se convierta en tiempo y dinero ahorrado para tu empresa.</p>
         <ul>
           <li data-i18n="about_li1">Soluciones a medida, no plantillas genéricas</li>
           <li data-i18n="about_li2">Comunicación directa durante todo el proyecto</li>
@@ -471,9 +472,9 @@
       uc4_h3: "Reportes financieros", uc4_p: "Consolidación automática de datos de ventas y gastos en un solo dashboard.",
       uc5_h3: "Onboarding de empleados", uc5_p: "Flujos automáticos de bienvenida, documentos y accesos para nuevo personal.",
       uc6_h3: "Publicación de contenido", uc6_p: "Programación y publicación automática de contenido en redes sociales.",
-      about_eyebrow: "Sobre nosotros", about_h2: "Una agencia nueva, con foco en resultados reales",
-      about_p1: "futureIA nace con la misión de acercar la automatización con inteligencia artificial a cualquier empresa, sin importar su tamaño o industria.",
-      about_p2: "Trabajamos con herramientas como n8n para construir flujos de trabajo a medida, y creemos que cada proceso repetitivo es una oportunidad de ahorrar tiempo y dinero.",
+      about_eyebrow: "Sobre mí", about_h2: "Michael Antonio Acosta Sosa",
+      about_p1: "Fundador y dueño de futureIA. Desarrollador de software y especialista en automatizaciones con inteligencia artificial.",
+      about_p2: "Diseño y construyo flujos de trabajo a medida con herramientas como n8n, integrando IA para que cada proceso repetitivo se convierta en tiempo y dinero ahorrado para tu empresa.",
       about_li1: "Soluciones a medida, no plantillas genéricas", about_li2: "Comunicación directa durante todo el proyecto", about_li3: "Enfoque en cualquier industria o sector",
       contact_h2: "¿Listo para automatizar tu empresa?",
       contact_p: "Escríbenos por WhatsApp y conversemos sobre cómo la IA puede ayudarte a ahorrar tiempo.",
@@ -485,7 +486,7 @@
     },
     en: {
       nav_servicios: "Services", nav_proceso: "How we work", nav_casos: "Use cases",
-      nav_sobre: "About us", nav_contacto: "Contact", nav_cta: "Contact us",
+      nav_sobre: "About me", nav_contacto: "Contact", nav_cta: "Contact us",
       hero_eyebrow: "AI-powered automation",
       hero_h1: 'We automate your business with <span class="gradient-text">artificial intelligence</span>',
       hero_p: "We design workflows, AI agents, and custom integrations so your team stops wasting time on repetitive tasks — no matter your industry.",
@@ -511,9 +512,9 @@
       uc4_h3: "Financial reporting", uc4_p: "Automatic consolidation of sales and expense data into a single dashboard.",
       uc5_h3: "Employee onboarding", uc5_p: "Automatic welcome flows, documents, and access for new staff.",
       uc6_h3: "Content publishing", uc6_p: "Automatic scheduling and publishing of content on social media.",
-      about_eyebrow: "About us", about_h2: "A new agency, focused on real results",
-      about_p1: "futureIA was born with the mission of bringing AI automation to any company, regardless of size or industry.",
-      about_p2: "We work with tools like n8n to build custom workflows, and we believe every repetitive process is an opportunity to save time and money.",
+      about_eyebrow: "About me", about_h2: "Michael Antonio Acosta Sosa",
+      about_p1: "Founder and owner of futureIA. Software developer specialized in AI-powered automations.",
+      about_p2: "I design and build custom workflows with tools like n8n, integrating AI so every repetitive process becomes time and money saved for your business.",
       about_li1: "Custom solutions, not generic templates", about_li2: "Direct communication throughout the project", about_li3: "Focus on any industry or sector",
       contact_h2: "Ready to automate your business?",
       contact_p: "Message us on WhatsApp and let's talk about how AI can help you save time.",
