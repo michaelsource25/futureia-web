@@ -212,19 +212,22 @@
 
   /* ABOUT */
   .about{
-    display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center;
+    display:flex;flex-direction:column;align-items:center;text-align:center;
+    gap:30px;max-width:620px;margin:0 auto;
   }
   .about-visual{
-    aspect-ratio:1;border-radius:24px;overflow:hidden;
+    aspect-ratio:1;width:100%;max-width:230px;border-radius:24px;overflow:hidden;
     background:linear-gradient(160deg, rgba(124,92,255,0.18), rgba(32,217,210,0.12));
     border:1px solid var(--border);
     display:flex;align-items:center;justify-content:center;font-size:64px;
+    box-shadow:0 16px 44px -12px rgba(124,92,255,0.4);
   }
   .about-visual img{width:100%;height:100%;object-fit:cover;display:block}
-  .about h2{font-size:32px;margin-bottom:16px}
-  .about p{color:var(--muted);margin-bottom:16px;font-size:16px}
-  .about ul{list-style:none;margin-top:20px}
-  .about li{display:flex;gap:10px;margin-bottom:10px;color:var(--text);font-size:15px}
+  .about-text{display:flex;flex-direction:column;align-items:center}
+  .about h2{font-size:32px;margin-bottom:14px}
+  .about p{color:var(--muted);margin-bottom:14px;font-size:16px;max-width:560px}
+  .about ul{list-style:none;margin-top:10px;display:inline-flex;flex-direction:column;gap:10px}
+  .about li{display:flex;gap:10px;align-items:center;justify-content:center;color:var(--text);font-size:15px}
   .about li::before{content:'✓';color:var(--accent2);font-weight:800}
 
   /* FAQ */
@@ -318,12 +321,11 @@
       <a href="#proceso" data-i18n="nav_proceso">Cómo trabajamos</a>
       <a href="#casos" data-i18n="nav_casos">Casos de uso</a>
       <a href="#faq" data-i18n="nav_faq">FAQ</a>
-      <a href="#sobre-mi" data-i18n="nav_sobre">Sobre mí</a>
       <a href="#contacto" data-i18n="nav_contacto">Contacto</a>
+      <a href="#sobre-mi" data-i18n="nav_sobre">Sobre mí</a>
     </div>
     <div class="nav-cta">
       <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma">🌐 EN</button>
-      <a href="#contacto" class="btn btn-outline" style="padding:10px 20px;font-size:14px" data-i18n="nav_cta">Contactar</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
     </div>
   </nav>
@@ -445,7 +447,7 @@
     </div>
   </section>
 
-  <section id="faq" class="wrap">
+  <section id="faq" class="wrap" style="padding-top:56px">
     <div class="section-head" data-reveal>
       <span class="eyebrow" data-i18n="faq_eyebrow">Preguntas frecuentes</span>
       <h2 data-i18n="faq_h2">Preguntas frecuentes</h2>
@@ -475,10 +477,18 @@
     </div>
   </section>
 
-  <section id="sobre-mi" class="wrap">
+  <section id="contacto" class="wrap">
+    <div class="contact-box" data-reveal>
+      <h2 data-i18n="contact_h2">¿Listo para automatizar tu empresa?</h2>
+      <p data-i18n="contact_p">Escríbenos por WhatsApp y conversemos sobre cómo la IA puede ayudarte a ahorrar tiempo.</p>
+      <a href="https://wa.me/18292162645?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20con%20IA" target="_blank" rel="noopener" class="btn btn-primary" data-wa-link data-i18n="contact_btn">💬 Escribir por WhatsApp</a>
+    </div>
+  </section>
+
+  <section id="sobre-mi" class="wrap" style="padding-top:64px">
     <div class="about" data-reveal>
       <div class="about-visual"><img src="michael.jpg" alt="Michael Antonio Acosta Sosa — fundador de futureIA"></div>
-      <div>
+      <div class="about-text">
         <span class="eyebrow" data-i18n="about_eyebrow">Sobre mí</span>
         <h2 data-i18n="about_h2">Michael Antonio Acosta Sosa</h2>
         <p data-i18n="about_p1">Fundador y dueño de futureIA. Desarrollador de software y especialista en automatizaciones con inteligencia artificial.</p>
@@ -489,14 +499,6 @@
           <li data-i18n="about_li3">Enfoque en cualquier industria o sector</li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <section id="contacto" class="wrap">
-    <div class="contact-box" data-reveal>
-      <h2 data-i18n="contact_h2">¿Listo para automatizar tu empresa?</h2>
-      <p data-i18n="contact_p">Escríbenos por WhatsApp y conversemos sobre cómo la IA puede ayudarte a ahorrar tiempo.</p>
-      <a href="https://wa.me/18292162645?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20con%20IA" target="_blank" rel="noopener" class="btn btn-primary" data-wa-link data-i18n="contact_btn">💬 Escribir por WhatsApp</a>
     </div>
   </section>
 </main>
