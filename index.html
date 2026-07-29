@@ -252,6 +252,26 @@
   .faq-item[open] summary::after{transform:rotate(45deg)}
   .faq-a{padding:0 26px 24px;color:var(--muted);font-size:15px;line-height:1.75}
 
+  /* COMPARE (antes/despues) */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:940px;margin:0 auto;align-items:start}
+  .compare-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px 30px}
+  .compare-card.after{border-color:rgba(32,217,210,0.4);box-shadow:0 22px 54px -22px rgba(124,92,255,0.55)}
+  .compare-head{font-size:20px;font-weight:800;margin-bottom:24px;display:flex;align-items:center;gap:10px;letter-spacing:-.3px}
+  .compare-card.before .compare-head{color:var(--muted)}
+  .compare-card.after .compare-head{
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .compare-card ul{list-style:none;display:flex;flex-direction:column;gap:15px}
+  .compare-card li{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5}
+  .compare-card li::before{
+    flex-shrink:0;font-weight:800;width:22px;height:22px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:1px;
+  }
+  .compare-card.before li{color:var(--muted)}
+  .compare-card.before li::before{content:'✕';background:rgba(239,106,106,0.14);color:#ef6a6a}
+  .compare-card.after li{color:var(--text)}
+  .compare-card.after li::before{content:'✓';background:rgba(32,217,210,0.16);color:var(--accent2)}
+
   /* CONTACT */
   .contact-box{
     background:var(--card);border:1px solid var(--border);border-radius:24px;
@@ -289,6 +309,7 @@
     .grid{grid-template-columns:1fr 1fr}
     .process-grid{grid-template-columns:1fr 1fr}
     .usecase-grid{grid-template-columns:1fr}
+    .compare{grid-template-columns:1fr}
     .about{grid-template-columns:1fr}
     .about-visual{max-width:280px;margin:0 auto}
   }
@@ -447,6 +468,38 @@
     </div>
   </section>
 
+  <section id="comparacion" class="wrap" style="padding-top:56px">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="cmp_eyebrow">Antes y después</span>
+      <h2 data-i18n="cmp_h2">Tu negocio antes y después de la IA</h2>
+      <p data-i18n="cmp_p">Así cambia la operación de tu negocio cuando automatizas con futureIA.</p>
+    </div>
+    <div class="compare">
+      <div class="compare-card before" data-reveal>
+        <div class="compare-head" data-i18n="cmp_before_t">😮‍💨 Sin futureIA</div>
+        <ul>
+          <li data-i18n="cmp_b1">Respondes cada mensaje a mano, uno por uno</li>
+          <li data-i18n="cmp_b2">Los clientes esperan horas por una respuesta</li>
+          <li data-i18n="cmp_b3">Pierdes ventas de noche y los fines de semana</li>
+          <li data-i18n="cmp_b4">Tu equipo saturado con preguntas repetitivas</li>
+          <li data-i18n="cmp_b5">Se te olvida dar seguimiento a los interesados</li>
+          <li data-i18n="cmp_b6">Atención solo en horario de oficina</li>
+        </ul>
+      </div>
+      <div class="compare-card after" data-reveal>
+        <div class="compare-head" data-i18n="cmp_after_t">⚡ Con futureIA</div>
+        <ul>
+          <li data-i18n="cmp_a1">El asistente responde solo, al instante</li>
+          <li data-i18n="cmp_a2">Respuestas en segundos, las 24 horas</li>
+          <li data-i18n="cmp_a3">Vendes de madrugada, feriados y fines de semana</li>
+          <li data-i18n="cmp_a4">Tu equipo se enfoca en lo que de verdad importa</li>
+          <li data-i18n="cmp_a5">Seguimiento automático a cada cliente potencial</li>
+          <li data-i18n="cmp_a6">Atención 24/7, todos los días del año</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section id="faq" class="wrap" style="padding-top:56px">
     <div class="section-head" data-reveal>
       <span class="eyebrow" data-i18n="faq_eyebrow">Preguntas frecuentes</span>
@@ -563,6 +616,22 @@
       about_p1: "Fundador y dueño de futureIA. Desarrollador de software y especialista en automatizaciones con inteligencia artificial.",
       about_p2: "Diseño y construyo flujos de trabajo a medida con herramientas como n8n, integrando IA para que cada proceso repetitivo se convierta en tiempo y dinero ahorrado para tu empresa.",
       about_li1: "Soluciones a medida, no plantillas genéricas", about_li2: "Comunicación directa durante todo el proyecto", about_li3: "Enfoque en cualquier industria o sector",
+      cmp_eyebrow: "Antes y después", cmp_h2: "Tu negocio antes y después de la IA",
+      cmp_p: "Así cambia la operación de tu negocio cuando automatizas con futureIA.",
+      cmp_before_t: "😮‍💨 Sin futureIA",
+      cmp_b1: "Respondes cada mensaje a mano, uno por uno",
+      cmp_b2: "Los clientes esperan horas por una respuesta",
+      cmp_b3: "Pierdes ventas de noche y los fines de semana",
+      cmp_b4: "Tu equipo saturado con preguntas repetitivas",
+      cmp_b5: "Se te olvida dar seguimiento a los interesados",
+      cmp_b6: "Atención solo en horario de oficina",
+      cmp_after_t: "⚡ Con futureIA",
+      cmp_a1: "El asistente responde solo, al instante",
+      cmp_a2: "Respuestas en segundos, las 24 horas",
+      cmp_a3: "Vendes de madrugada, feriados y fines de semana",
+      cmp_a4: "Tu equipo se enfoca en lo que de verdad importa",
+      cmp_a5: "Seguimiento automático a cada cliente potencial",
+      cmp_a6: "Atención 24/7, todos los días del año",
       faq_eyebrow: "FAQ", faq_h2: "Preguntas frecuentes",
       faq_p: "Lo que necesitas saber antes de empezar con futureIA.",
       faq1_q: "¿Cómo funciona el agente de IA para WhatsApp? ¿Reemplaza completamente a una persona?",
@@ -615,6 +684,22 @@
       about_p1: "Founder and owner of futureIA. Software developer specialized in AI-powered automations.",
       about_p2: "I design and build custom workflows with tools like n8n, integrating AI so every repetitive process becomes time and money saved for your business.",
       about_li1: "Custom solutions, not generic templates", about_li2: "Direct communication throughout the project", about_li3: "Focus on any industry or sector",
+      cmp_eyebrow: "Before & after", cmp_h2: "Your business before and after AI",
+      cmp_p: "This is how your operation changes when you automate with futureIA.",
+      cmp_before_t: "😮‍💨 Without futureIA",
+      cmp_b1: "You reply to every message by hand, one by one",
+      cmp_b2: "Customers wait hours for a reply",
+      cmp_b3: "You lose sales at night and on weekends",
+      cmp_b4: "Your team is swamped with repetitive questions",
+      cmp_b5: "You forget to follow up with leads",
+      cmp_b6: "Support only during office hours",
+      cmp_after_t: "⚡ With futureIA",
+      cmp_a1: "The assistant replies on its own, instantly",
+      cmp_a2: "Replies in seconds, 24 hours a day",
+      cmp_a3: "You sell at dawn, on holidays and weekends",
+      cmp_a4: "Your team focuses on what really matters",
+      cmp_a5: "Automatic follow-up with every lead",
+      cmp_a6: "Support 24/7, every day of the year",
       faq_eyebrow: "FAQ", faq_h2: "Frequently asked questions",
       faq_p: "What you need to know before getting started with futureIA.",
       faq1_q: "How does the WhatsApp AI agent work? Does it fully replace a person?",
