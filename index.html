@@ -97,7 +97,7 @@
   nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1120px;margin:0 auto}
   .logo{font-size:20px;font-weight:800;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px}
   .logo span{color:var(--accent2)}
-  .logo img{height:34px;width:34px;object-fit:contain;border-radius:8px}
+  .logo img{height:34px;width:34px;object-fit:contain;border-radius:8px;filter:brightness(1.35) saturate(1.25)}
   .nav-links{display:flex;gap:32px;font-size:15px;color:var(--muted)}
   .nav-links a:hover{color:var(--text)}
   .nav-cta{display:flex;align-items:center;gap:16px}
@@ -164,7 +164,7 @@
     box-shadow:0 16px 44px -10px rgba(124,92,255,0.55);
     border:1px solid var(--border);
   }
-  .hero-logo img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-logo img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(1.4) saturate(1.3) contrast(1.08)}
 
   /* SECTION HEADERS */
   .section-head{text-align:center;max-width:640px;margin:0 auto 64px}
@@ -225,6 +225,28 @@
   .about ul{list-style:none;margin-top:20px}
   .about li{display:flex;gap:10px;margin-bottom:10px;color:var(--text);font-size:15px}
   .about li::before{content:'✓';color:var(--accent2);font-weight:800}
+
+  /* FAQ */
+  .faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+  .faq-item{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    overflow:hidden;transition:border-color .25s ease, box-shadow .25s ease;
+  }
+  .faq-item[open]{border-color:rgba(124,92,255,0.45);box-shadow:0 10px 34px -14px rgba(124,92,255,0.4)}
+  .faq-item summary{
+    list-style:none;cursor:pointer;padding:22px 26px;
+    font-size:17px;font-weight:600;color:var(--text);line-height:1.45;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    transition:color .2s ease;
+  }
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary:hover{color:var(--accent2)}
+  .faq-item summary::after{
+    content:'+';font-size:26px;font-weight:300;color:var(--accent2);
+    flex-shrink:0;line-height:1;transition:transform .3s ease;
+  }
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-a{padding:0 26px 24px;color:var(--muted);font-size:15px;line-height:1.75}
 
   /* CONTACT */
   .contact-box{
@@ -294,6 +316,7 @@
       <a href="#servicios" data-i18n="nav_servicios">Servicios</a>
       <a href="#proceso" data-i18n="nav_proceso">Cómo trabajamos</a>
       <a href="#casos" data-i18n="nav_casos">Casos de uso</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
       <a href="#sobre-mi" data-i18n="nav_sobre">Sobre mí</a>
       <a href="#contacto" data-i18n="nav_contacto">Contacto</a>
     </div>
@@ -310,7 +333,7 @@
     <div class="hero-logo"><img src="logo.png" alt="futureIA logo"></div>
     <span class="eyebrow" data-i18n="hero_eyebrow">Automatización impulsada por IA</span>
     <h1 data-i18n="hero_h1" data-i18n-html>Automatizamos tu empresa con <span class="gradient-text">inteligencia artificial</span></h1>
-    <p data-i18n="hero_p">Diseñamos flujos de trabajo, agentes IA e integraciones a medida para que tu equipo deje de perder tiempo en tareas repetitivas — sin importar tu industria.</p>
+    <p data-i18n="hero_p">Diseñamos flujos de trabajo, agentes IA e integraciones a medida para que tu equipo deje de perder tiempo en tareas repetitivas.</p>
     <div class="hero-actions">
       <a href="https://wa.me/18292162645?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20con%20IA" target="_blank" rel="noopener" class="btn btn-primary" data-wa-link data-i18n="hero_btn1">Hablemos por WhatsApp</a>
       <a href="#servicios" class="btn btn-outline" data-i18n="hero_btn2">Ver servicios</a>
@@ -421,6 +444,36 @@
     </div>
   </section>
 
+  <section id="faq" class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="faq_eyebrow">Preguntas frecuentes</span>
+      <h2 data-i18n="faq_h2">Preguntas frecuentes</h2>
+      <p data-i18n="faq_p">Lo que necesitas saber antes de empezar con futureIA.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" data-reveal>
+        <summary data-i18n="faq1_q">¿Cómo funciona el agente de IA para WhatsApp? ¿Reemplaza completamente a una persona?</summary>
+        <div class="faq-a"><p data-i18n="faq1_a">No reemplaza al 100% al equipo humano, pero automatiza el 80-90% de las conversaciones repetitivas: responder preguntas frecuentes, tomar pedidos, agendar citas o calificar leads. Además, tú o tu equipo pueden tomar el control de cualquier conversación cuando lo deseen o cuando sea necesario, desde un panel en tiempo real. Los casos complejos o sensibles también se derivan a un humano automáticamente.</p></div>
+      </details>
+      <details class="faq-item" data-reveal>
+        <summary data-i18n="faq2_q">¿El número de WhatsApp es mío o de la agencia?</summary>
+        <div class="faq-a"><p data-i18n="faq2_a">El número queda registrado bajo tu propio Meta Business Manager, con futureIA como administrador socio para poder configurar y mantener el sistema. Así conservas la propiedad del canal, mientras la infraestructura (servidor, flujos de automatización) la gestiona la agencia.</p></div>
+      </details>
+      <details class="faq-item" data-reveal>
+        <summary data-i18n="faq3_q">¿Cuánto cuesta y cómo es el modelo de pago?</summary>
+        <div class="faq-a"><p data-i18n="faq3_a">Hay un pago de configuración inicial (setup) más una mensualidad que cubre hosting, mantenimiento, monitoreo y ajustes del agente. El precio varía según el paquete: agente de WhatsApp, agendamiento, calificación de leads, facturación o reportes.</p></div>
+      </details>
+      <details class="faq-item" data-reveal>
+        <summary data-i18n="faq4_q">¿Puedo tener acceso total al sistema o quedo dependiendo de la agencia?</summary>
+        <div class="faq-a"><p data-i18n="faq4_a">Es posible transferir la infraestructura completa, pero tiene un costo significativamente mayor, ya que el modelo estándar de futureIA se basa en alojar y mantener el sistema para garantizar estabilidad y soporte continuo.</p></div>
+      </details>
+      <details class="faq-item" data-reveal>
+        <summary data-i18n="faq5_q">¿Cuánto tiempo toma implementarlo?</summary>
+        <div class="faq-a"><p data-i18n="faq5_a">Depende de la complejidad del negocio (menú, catálogo, flujos de citas, integraciones), pero típicamente entre 1 y 2 semanas desde que se define el alcance hasta que el agente queda operativo y probado.</p></div>
+      </details>
+    </div>
+  </section>
+
   <section id="sobre-mi" class="wrap">
     <div class="about" data-reveal>
       <div class="about-visual"><img src="michael.jpg" alt="Michael Antonio Acosta Sosa — fundador de futureIA"></div>
@@ -477,10 +530,10 @@
   const translations = {
     es: {
       nav_servicios: "Servicios", nav_proceso: "Cómo trabajamos", nav_casos: "Casos de uso",
-      nav_sobre: "Sobre mí", nav_contacto: "Contacto", nav_cta: "Contactar",
+      nav_sobre: "Sobre mí", nav_faq: "FAQ", nav_contacto: "Contacto", nav_cta: "Contactar",
       hero_eyebrow: "Automatización impulsada por IA",
       hero_h1: 'Automatizamos tu empresa con <span class="gradient-text">inteligencia artificial</span>',
-      hero_p: "Diseñamos flujos de trabajo, agentes IA e integraciones a medida para que tu equipo deje de perder tiempo en tareas repetitivas — sin importar tu industria.",
+      hero_p: "Diseñamos flujos de trabajo, agentes IA e integraciones a medida para que tu equipo deje de perder tiempo en tareas repetitivas.",
       hero_btn1: "Hablemos por WhatsApp", hero_btn2: "Ver servicios",
       serv_eyebrow: "Servicios", serv_h2: "Todo lo que necesitas para automatizar",
       serv_p: "Soluciones flexibles que se adaptan a cualquier tipo de empresa, sin importar el tamaño o el sector.",
@@ -507,6 +560,18 @@
       about_p1: "Fundador y dueño de futureIA. Desarrollador de software y especialista en automatizaciones con inteligencia artificial.",
       about_p2: "Diseño y construyo flujos de trabajo a medida con herramientas como n8n, integrando IA para que cada proceso repetitivo se convierta en tiempo y dinero ahorrado para tu empresa.",
       about_li1: "Soluciones a medida, no plantillas genéricas", about_li2: "Comunicación directa durante todo el proyecto", about_li3: "Enfoque en cualquier industria o sector",
+      faq_eyebrow: "FAQ", faq_h2: "Preguntas frecuentes",
+      faq_p: "Lo que necesitas saber antes de empezar con futureIA.",
+      faq1_q: "¿Cómo funciona el agente de IA para WhatsApp? ¿Reemplaza completamente a una persona?",
+      faq1_a: "No reemplaza al 100% al equipo humano, pero automatiza el 80-90% de las conversaciones repetitivas: responder preguntas frecuentes, tomar pedidos, agendar citas o calificar leads. Además, tú o tu equipo pueden tomar el control de cualquier conversación cuando lo deseen o cuando sea necesario, desde un panel en tiempo real. Los casos complejos o sensibles también se derivan a un humano automáticamente.",
+      faq2_q: "¿El número de WhatsApp es mío o de la agencia?",
+      faq2_a: "El número queda registrado bajo tu propio Meta Business Manager, con futureIA como administrador socio para poder configurar y mantener el sistema. Así conservas la propiedad del canal, mientras la infraestructura (servidor, flujos de automatización) la gestiona la agencia.",
+      faq3_q: "¿Cuánto cuesta y cómo es el modelo de pago?",
+      faq3_a: "Hay un pago de configuración inicial (setup) más una mensualidad que cubre hosting, mantenimiento, monitoreo y ajustes del agente. El precio varía según el paquete: agente de WhatsApp, agendamiento, calificación de leads, facturación o reportes.",
+      faq4_q: "¿Puedo tener acceso total al sistema o quedo dependiendo de la agencia?",
+      faq4_a: "Es posible transferir la infraestructura completa, pero tiene un costo significativamente mayor, ya que el modelo estándar de futureIA se basa en alojar y mantener el sistema para garantizar estabilidad y soporte continuo.",
+      faq5_q: "¿Cuánto tiempo toma implementarlo?",
+      faq5_a: "Depende de la complejidad del negocio (menú, catálogo, flujos de citas, integraciones), pero típicamente entre 1 y 2 semanas desde que se define el alcance hasta que el agente queda operativo y probado.",
       contact_h2: "¿Listo para automatizar tu empresa?",
       contact_p: "Escríbenos por WhatsApp y conversemos sobre cómo la IA puede ayudarte a ahorrar tiempo.",
       contact_btn: "💬 Escribir por WhatsApp",
@@ -517,10 +582,10 @@
     },
     en: {
       nav_servicios: "Services", nav_proceso: "How we work", nav_casos: "Use cases",
-      nav_sobre: "About me", nav_contacto: "Contact", nav_cta: "Contact us",
+      nav_sobre: "About me", nav_faq: "FAQ", nav_contacto: "Contact", nav_cta: "Contact us",
       hero_eyebrow: "AI-powered automation",
       hero_h1: 'We automate your business with <span class="gradient-text">artificial intelligence</span>',
-      hero_p: "We design workflows, AI agents, and custom integrations so your team stops wasting time on repetitive tasks — no matter your industry.",
+      hero_p: "We design workflows, AI agents, and custom integrations so your team stops wasting time on repetitive tasks.",
       hero_btn1: "Chat on WhatsApp", hero_btn2: "See services",
       serv_eyebrow: "Services", serv_h2: "Everything you need to automate",
       serv_p: "Flexible solutions that adapt to any type of company, regardless of size or sector.",
@@ -547,6 +612,18 @@
       about_p1: "Founder and owner of futureIA. Software developer specialized in AI-powered automations.",
       about_p2: "I design and build custom workflows with tools like n8n, integrating AI so every repetitive process becomes time and money saved for your business.",
       about_li1: "Custom solutions, not generic templates", about_li2: "Direct communication throughout the project", about_li3: "Focus on any industry or sector",
+      faq_eyebrow: "FAQ", faq_h2: "Frequently asked questions",
+      faq_p: "What you need to know before getting started with futureIA.",
+      faq1_q: "How does the WhatsApp AI agent work? Does it fully replace a person?",
+      faq1_a: "It doesn't replace your human team 100%, but it automates 80-90% of repetitive conversations: answering FAQs, taking orders, booking appointments, or qualifying leads. On top of that, you or your team can take over any conversation whenever you want or whenever it's needed, from a real-time panel. Complex or sensitive cases are also routed to a human automatically.",
+      faq2_q: "Is the WhatsApp number mine or the agency's?",
+      faq2_a: "The number is registered under your own Meta Business Manager, with futureIA as a partner admin so we can set up and maintain the system. That way you keep ownership of the channel, while the agency manages the infrastructure (server, automation workflows).",
+      faq3_q: "How much does it cost and what's the payment model?",
+      faq3_a: "There's a one-time setup fee plus a monthly retainer that covers hosting, maintenance, monitoring, and agent adjustments. The price varies by package: WhatsApp agent, scheduling, lead qualification, billing, or reporting.",
+      faq4_q: "Can I have full access to the system, or do I depend on the agency?",
+      faq4_a: "It's possible to transfer the full infrastructure, but it costs significantly more, since futureIA's standard model is based on hosting and maintaining the system to guarantee stability and ongoing support.",
+      faq5_q: "How long does it take to implement?",
+      faq5_a: "It depends on the complexity of the business (menu, catalog, appointment flows, integrations), but typically 1 to 2 weeks from defining the scope until the agent is live and tested.",
       contact_h2: "Ready to automate your business?",
       contact_p: "Message us on WhatsApp and let's talk about how AI can help you save time.",
       contact_btn: "💬 Chat on WhatsApp",
