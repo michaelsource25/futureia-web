@@ -272,6 +272,83 @@
   .compare-card.after li{color:var(--text)}
   .compare-card.after li::before{content:'✓';background:rgba(32,217,210,0.16);color:var(--accent2)}
 
+  /* PLANES */
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:940px;margin:0 auto;align-items:stretch}
+  .plan-card{
+    position:relative;background:var(--card);border:1px solid var(--border);border-radius:20px;
+    padding:32px 30px;display:flex;flex-direction:column;
+  }
+  .plan-card.featured{border-color:rgba(32,217,210,0.4);box-shadow:0 22px 54px -22px rgba(124,92,255,0.55)}
+  .plan-badge{
+    position:absolute;top:-14px;left:30px;
+    background:var(--grad);color:#04060a;font-size:12px;font-weight:800;
+    padding:6px 14px;border-radius:999px;letter-spacing:.2px;
+  }
+  .plan-card .compare-head{
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+    font-size:20px;font-weight:800;margin-bottom:16px;letter-spacing:-.3px;
+  }
+  .plan-price{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+  .plan-price-main{font-size:32px;font-weight:800;color:var(--text);letter-spacing:-.5px}
+  .plan-price-main small{font-size:14px;font-weight:600;color:var(--muted);margin-left:4px}
+  .plan-price-sub{display:block;color:var(--accent2);font-size:14px;font-weight:600;margin-top:4px}
+  .plan-note{display:block;color:var(--muted);font-size:12.5px;font-weight:600;margin-top:8px}
+  .plan-desc{color:var(--muted);font-size:15px;margin-bottom:20px}
+  .plan-card ul{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:28px}
+  .plan-card li{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--text)}
+  .plan-card li::before{
+    content:'✓';flex-shrink:0;font-weight:800;width:22px;height:22px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:1px;
+    background:rgba(32,217,210,0.16);color:var(--accent2);
+  }
+  .plan-cta{justify-content:center;margin-top:auto}
+
+  /* DEMO CHAT */
+  .demo-toggle{width:100%;justify-content:center;margin-top:12px;font-size:14px;padding:12px 22px}
+  .demo-chat{
+    margin-top:16px;border:1px solid var(--border);border-radius:16px;
+    background:var(--bg-soft);
+    max-height:0;overflow:hidden;opacity:0;
+    transition:max-height .45s ease, opacity .3s ease;
+  }
+  .demo-chat.open{max-height:460px;opacity:1}
+  .demo-chat-head{
+    display:flex;align-items:center;gap:9px;padding:12px 16px;
+    background:var(--card);border-bottom:1px solid var(--border);
+  }
+  .demo-chat-head .dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 6px var(--accent2);flex-shrink:0}
+  .demo-chat-head span:last-child{font-size:12.5px;font-weight:700;color:var(--text)}
+  .demo-chat-body{
+    padding:16px;display:flex;flex-direction:column;gap:10px;
+    max-height:260px;overflow-y:auto;
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .demo-chat-body::-webkit-scrollbar{display:none}
+  .demo-msg{max-width:82%;padding:10px 14px;border-radius:14px;font-size:13.5px;line-height:1.5;animation:demoIn .3s ease}
+  .demo-msg.bot{align-self:flex-start;background:var(--card);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:4px}
+  .demo-msg.user{align-self:flex-end;background:var(--grad);color:#04060a;font-weight:600;border-bottom-right-radius:4px}
+  .demo-typing{align-self:flex-start;display:flex;gap:4px;padding:12px 14px;background:var(--card);border:1px solid var(--border);border-radius:14px;border-bottom-left-radius:4px}
+  .demo-typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:demoTyping 1.1s infinite ease-in-out}
+  .demo-typing span:nth-child(2){animation-delay:.15s}
+  .demo-typing span:nth-child(3){animation-delay:.3s}
+  @keyframes demoTyping{0%,60%,100%{opacity:.3}30%{opacity:1}}
+  @keyframes demoIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  .demo-hook{
+    align-self:center;text-align:center;max-width:92%;
+    margin-top:4px;padding:10px 14px;border-radius:12px;
+    background:rgba(32,217,210,0.08);border:1px solid rgba(32,217,210,0.28);
+    color:var(--accent2);font-size:12.5px;font-weight:700;line-height:1.4;
+    animation:demoIn .3s ease;
+  }
+  .demo-reset{
+    display:block;font-size:12px;color:var(--muted);text-decoration:underline;
+    cursor:pointer;background:none;border:none;padding:0 16px 16px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .demo-msg, .demo-typing span, .demo-hook{animation:none}
+    .demo-chat{transition:none}
+  }
+
   /* CONTACT */
   .contact-box{
     background:var(--card);border:1px solid var(--border);border-radius:24px;
@@ -310,6 +387,7 @@
     .process-grid{grid-template-columns:1fr 1fr}
     .usecase-grid{grid-template-columns:1fr}
     .compare{grid-template-columns:1fr}
+    .plans{grid-template-columns:1fr}
     .about{grid-template-columns:1fr}
     .about-visual{max-width:280px;margin:0 auto}
   }
@@ -500,6 +578,60 @@
     </div>
   </section>
 
+  <section id="planes" class="wrap" style="padding-top:56px">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="plans_eyebrow">Planes</span>
+      <h2 data-i18n="plans_h2">Elige cómo quieres tu agente de IA</h2>
+    </div>
+    <div class="plans">
+      <div class="plan-card featured" data-reveal>
+        <span class="plan-badge" data-i18n="plan1_badge">🔥 Más elegido</span>
+        <div class="compare-head" data-i18n="plan1_name">Plan Estándar</div>
+        <div class="plan-price">
+          <span class="plan-price-main" data-i18n-html data-i18n="plan1_price">$599 <small>configuración</small></span>
+          <span class="plan-price-sub" data-i18n="plan1_sub">+ $80/mes de mantenimiento</span>
+          <span class="plan-note" data-i18n="plan_note">💳 Se aceptan acuerdos de pago</span>
+        </div>
+        <p class="plan-desc" data-i18n="plan1_desc">La forma más rápida y económica de arrancar: nosotros alojamos, monitoreamos y mantenemos tu agente para que tú solo te preocupes por vender.</p>
+        <ul>
+          <li data-i18n="plan1_f1">Agente de WhatsApp con IA operativo en días, no meses</li>
+          <li data-i18n="plan1_f2">Hosting, monitoreo y mantenimiento incluidos cada mes</li>
+          <li data-i18n="plan1_f3">Ajustes y mejoras continuas sin que muevas un dedo</li>
+          <li data-i18n="plan1_f4">Ideal para empezar a automatizar sin una inversión grande</li>
+        </ul>
+        <a href="https://wa.me/18292162645?text=" target="_blank" rel="noopener" class="btn btn-primary plan-cta" data-wa-link data-wa-msg="plan1_wa" data-i18n="plan_cta">Quiero información</a>
+        <button type="button" class="btn btn-outline demo-toggle" data-i18n="demo_cta">▶ Probar demo</button>
+        <div class="demo-chat">
+          <div class="demo-chat-head"><span class="dot"></span><span data-i18n="demo_head">Agente futureIA · en línea</span></div>
+          <div class="demo-chat-body"></div>
+          <button type="button" class="demo-reset" hidden data-i18n="demo_reset">↺ Reproducir de nuevo</button>
+        </div>
+      </div>
+      <div class="plan-card" data-reveal>
+        <div class="compare-head" data-i18n="plan2_name">Plan Premium</div>
+        <div class="plan-price">
+          <span class="plan-price-main" data-i18n-html data-i18n="plan2_price">$2,499 <small>configuración</small></span>
+          <span class="plan-price-sub" data-i18n="plan2_sub">+ $120/mes de mantenimiento (primeros 3 meses)</span>
+          <span class="plan-note" data-i18n="plan_note">💳 Se aceptan acuerdos de pago</span>
+        </div>
+        <p class="plan-desc" data-i18n="plan2_desc">Para negocios que ya escalaron y quieren control total: instalamos el sistema completo en tu propia infraestructura, sin depender de servidores de terceros.</p>
+        <ul>
+          <li data-i18n="plan2_f1">Infraestructura 100% tuya, sin depender de la agencia para operar</li>
+          <li data-i18n="plan2_f2">El mismo agente de IA, el mismo nivel de automatización, control total</li>
+          <li data-i18n="plan2_f3">Mantenimiento incluido solo los primeros 3 meses, luego eres 100% independiente</li>
+          <li data-i18n="plan2_f4">Pensado para empresas listas para operar con independencia total</li>
+        </ul>
+        <a href="https://wa.me/18292162645?text=" target="_blank" rel="noopener" class="btn btn-primary plan-cta" data-wa-link data-wa-msg="plan2_wa" data-i18n="plan_cta">Quiero información</a>
+        <button type="button" class="btn btn-outline demo-toggle" data-i18n="demo_cta">▶ Probar demo</button>
+        <div class="demo-chat">
+          <div class="demo-chat-head"><span class="dot"></span><span data-i18n="demo_head">Agente futureIA · en línea</span></div>
+          <div class="demo-chat-body"></div>
+          <button type="button" class="demo-reset" hidden data-i18n="demo_reset">↺ Reproducir de nuevo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="faq" class="wrap" style="padding-top:56px">
     <div class="section-head" data-reveal>
       <span class="eyebrow" data-i18n="faq_eyebrow">Preguntas frecuentes</span>
@@ -508,8 +640,8 @@
     </div>
     <div class="faq-list">
       <details class="faq-item" data-reveal>
-        <summary data-i18n="faq1_q">¿Cómo funciona el agente de IA para WhatsApp? ¿Reemplaza completamente a una persona?</summary>
-        <div class="faq-a"><p data-i18n="faq1_a">No reemplaza al 100% al equipo humano, pero automatiza el 80-90% de las conversaciones repetitivas: responder preguntas frecuentes, tomar pedidos, agendar citas o calificar leads. Además, tú o tu equipo pueden tomar el control de cualquier conversación cuando lo deseen o cuando sea necesario, desde un panel en tiempo real. Los casos complejos o sensibles también se derivan a un humano automáticamente.</p></div>
+        <summary data-i18n="faq1_q">¿Cómo funciona el agente de IA para WhatsApp?</summary>
+        <div class="faq-a"><p data-i18n="faq1_a">Se conecta a tu número de WhatsApp Business y responde usando inteligencia artificial entrenada con la información de tu negocio. Puede responder preguntas frecuentes al instante, tomar pedidos, agendar y confirmar citas, calificar y dar seguimiento a leads, enviar catálogos, precios o recordatorios, y atender varias conversaciones a la vez, las 24 horas del día. Los casos complejos o sensibles se derivan automáticamente a un humano, y tú o tu equipo pueden tomar el control de cualquier conversación en tiempo real cuando lo necesiten.</p></div>
       </details>
       <details class="faq-item" data-reveal>
         <summary data-i18n="faq2_q">¿El número de WhatsApp es mío o de la agencia?</summary>
@@ -525,7 +657,7 @@
       </details>
       <details class="faq-item" data-reveal>
         <summary data-i18n="faq5_q">¿Cuánto tiempo toma implementarlo?</summary>
-        <div class="faq-a"><p data-i18n="faq5_a">Depende de la complejidad del negocio (menú, catálogo, flujos de citas, integraciones), pero típicamente entre 1 y 2 semanas desde que se define el alcance hasta que el agente queda operativo y probado.</p></div>
+        <div class="faq-a"><p data-i18n="faq5_a">Depende de la complejidad del negocio (menú, catálogo, flujos de citas, integraciones), pero típicamente de 3 días a 1 semana desde que se define el alcance hasta que el agente queda operativo y probado.</p></div>
       </details>
     </div>
   </section>
@@ -632,10 +764,43 @@
       cmp_a4: "Tu equipo se enfoca en lo que de verdad importa",
       cmp_a5: "Seguimiento automático a cada cliente potencial",
       cmp_a6: "Atención 24/7, todos los días del año",
+      plans_eyebrow: "Planes", plans_h2: "Elige cómo quieres tu agente de IA",
+      plan1_badge: "🔥 Más elegido",
+      plan1_name: "Plan Estándar",
+      plan1_price: '$599 <small>configuración</small>',
+      plan1_sub: "+ $80/mes de mantenimiento",
+      plan1_desc: "La forma más rápida y económica de arrancar: nosotros alojamos, monitoreamos y mantenemos tu agente para que tú solo te preocupes por vender.",
+      plan1_f1: "Agente de WhatsApp con IA operativo en días, no meses",
+      plan1_f2: "Hosting, monitoreo y mantenimiento incluidos cada mes",
+      plan1_f3: "Ajustes y mejoras continuas sin que muevas un dedo",
+      plan1_f4: "Ideal para empezar a automatizar sin una inversión grande",
+      plan2_name: "Plan Premium",
+      plan2_price: '$2,499 <small>configuración</small>',
+      plan2_sub: "+ $120/mes de mantenimiento (primeros 3 meses)",
+      plan2_desc: "Para negocios que ya escalaron y quieren control total: instalamos el sistema completo en tu propia infraestructura, sin depender de servidores de terceros.",
+      plan2_f1: "Infraestructura 100% tuya, sin depender de la agencia para operar",
+      plan2_f2: "El mismo agente de IA, el mismo nivel de automatización, control total",
+      plan2_f3: "Mantenimiento incluido solo los primeros 3 meses, luego eres 100% independiente",
+      plan2_f4: "Pensado para empresas listas para operar con independencia total",
+      plan_cta: "Quiero información",
+      plan_note: "💳 Se aceptan acuerdos de pago",
+      plan1_wa: "Hola, quiero información sobre el Plan Estándar ($599 + $80/mes)",
+      plan2_wa: "Hola, quiero información sobre el Plan Premium ($2,499 + $120/mes)",
+      demo_cta: "▶ Probar demo",
+      demo_head: "Agente futureIA · en línea",
+      demo_reset: "↺ Reproducir de nuevo",
+      demo_greeting: "¡Hola! 👋 Soy el agente de IA de futureIA.",
+      demo_q1: "¿Cuánto cuesta el servicio?",
+      demo_a1: "Tenemos un Plan Estándar desde $599 + $80/mes, y un Plan Premium con infraestructura propia desde $2,499 + $120/mes. ¿Quieres que te explique las diferencias?",
+      demo_q2: "¿Cuánto tiempo toma implementarlo?",
+      demo_a2: "Normalmente de 3 días a 1 semana, dependiendo de la complejidad de tu negocio. 🚀",
+      demo_q3: "¿Atienden fuera de horario de oficina?",
+      demo_a3: "Sí, 24/7. Respondo al instante aunque sea medianoche, fin de semana o feriado. 🌙",
+      demo_hook: "⚡ Así de rápido responderá tu negocio a tus clientes, las 24 horas del día.",
       faq_eyebrow: "FAQ", faq_h2: "Preguntas frecuentes",
       faq_p: "Lo que necesitas saber antes de empezar con futureIA.",
-      faq1_q: "¿Cómo funciona el agente de IA para WhatsApp? ¿Reemplaza completamente a una persona?",
-      faq1_a: "No reemplaza al 100% al equipo humano, pero automatiza el 80-90% de las conversaciones repetitivas: responder preguntas frecuentes, tomar pedidos, agendar citas o calificar leads. Además, tú o tu equipo pueden tomar el control de cualquier conversación cuando lo deseen o cuando sea necesario, desde un panel en tiempo real. Los casos complejos o sensibles también se derivan a un humano automáticamente.",
+      faq1_q: "¿Cómo funciona el agente de IA para WhatsApp?",
+      faq1_a: "Se conecta a tu número de WhatsApp Business y responde usando inteligencia artificial entrenada con la información de tu negocio. Puede responder preguntas frecuentes al instante, tomar pedidos, agendar y confirmar citas, calificar y dar seguimiento a leads, enviar catálogos, precios o recordatorios, y atender varias conversaciones a la vez, las 24 horas del día. Los casos complejos o sensibles se derivan automáticamente a un humano, y tú o tu equipo pueden tomar el control de cualquier conversación en tiempo real cuando lo necesiten.",
       faq2_q: "¿El número de WhatsApp es mío o de la agencia?",
       faq2_a: "El número queda registrado bajo tu propio Meta Business Manager, con futureIA como administrador socio para poder configurar y mantener el sistema. Así conservas la propiedad del canal, mientras la infraestructura (servidor, flujos de automatización) la gestiona la agencia.",
       faq3_q: "¿Cuánto cuesta y cómo es el modelo de pago?",
@@ -643,7 +808,7 @@
       faq4_q: "¿Puedo tener acceso total al sistema o quedo dependiendo de la agencia?",
       faq4_a: "Es posible transferir la infraestructura completa, pero tiene un costo significativamente mayor, ya que el modelo estándar de futureIA se basa en alojar y mantener el sistema para garantizar estabilidad y soporte continuo.",
       faq5_q: "¿Cuánto tiempo toma implementarlo?",
-      faq5_a: "Depende de la complejidad del negocio (menú, catálogo, flujos de citas, integraciones), pero típicamente entre 1 y 2 semanas desde que se define el alcance hasta que el agente queda operativo y probado.",
+      faq5_a: "Depende de la complejidad del negocio (menú, catálogo, flujos de citas, integraciones), pero típicamente de 3 días a 1 semana desde que se define el alcance hasta que el agente queda operativo y probado.",
       contact_h2: "¿Listo para automatizar tu empresa?",
       contact_p: "Escríbenos por WhatsApp y conversemos sobre cómo la IA puede ayudarte a ahorrar tiempo.",
       contact_btn: "💬 Escribir por WhatsApp",
@@ -700,10 +865,43 @@
       cmp_a4: "Your team focuses on what really matters",
       cmp_a5: "Automatic follow-up with every lead",
       cmp_a6: "Support 24/7, every day of the year",
+      plans_eyebrow: "Plans", plans_h2: "Choose how you want your AI agent",
+      plan1_badge: "🔥 Most popular",
+      plan1_name: "Standard Plan",
+      plan1_price: '$599 <small>setup</small>',
+      plan1_sub: "+ $80/month maintenance",
+      plan1_desc: "The fastest, most affordable way to get started: we host, monitor, and maintain your agent so you can focus on selling.",
+      plan1_f1: "Your WhatsApp AI agent live in days, not months",
+      plan1_f2: "Hosting, monitoring, and maintenance included every month",
+      plan1_f3: "Ongoing tweaks and improvements without lifting a finger",
+      plan1_f4: "Perfect for getting started without a big upfront investment",
+      plan2_name: "Premium Plan",
+      plan2_price: '$2,499 <small>setup</small>',
+      plan2_sub: "+ $120/month maintenance (first 3 months)",
+      plan2_desc: "For businesses that have already scaled and want full control: we install the complete system on your own infrastructure, with no reliance on third-party servers.",
+      plan2_f1: "Infrastructure that's 100% yours, no dependence on the agency to operate",
+      plan2_f2: "The same AI agent, the same level of automation, full control",
+      plan2_f3: "Maintenance included for the first 3 months, then you're 100% independent",
+      plan2_f4: "Built for companies ready to operate with full independence",
+      plan_cta: "I want more info",
+      plan_note: "💳 Payment plans available",
+      plan1_wa: "Hi, I'd like info about the Standard Plan ($599 + $80/month)",
+      plan2_wa: "Hi, I'd like info about the Premium Plan ($2,499 + $120/month)",
+      demo_cta: "▶ Try demo",
+      demo_head: "futureIA Agent · online",
+      demo_reset: "↺ Play again",
+      demo_greeting: "Hi! 👋 I'm futureIA's AI agent.",
+      demo_q1: "How much does the service cost?",
+      demo_a1: "We have a Standard Plan from $599 + $80/month, and a Premium Plan with your own infrastructure from $2,499 + $120/month. Want me to explain the differences?",
+      demo_q2: "How long does implementation take?",
+      demo_a2: "Usually 3 days to 1 week, depending on how complex your business is. 🚀",
+      demo_q3: "Do you handle support outside office hours?",
+      demo_a3: "Yes, 24/7. I reply instantly even at midnight, on weekends, or holidays. 🌙",
+      demo_hook: "⚡ This is how fast your business will reply to your customers, 24 hours a day.",
       faq_eyebrow: "FAQ", faq_h2: "Frequently asked questions",
       faq_p: "What you need to know before getting started with futureIA.",
-      faq1_q: "How does the WhatsApp AI agent work? Does it fully replace a person?",
-      faq1_a: "It doesn't replace your human team 100%, but it automates 80-90% of repetitive conversations: answering FAQs, taking orders, booking appointments, or qualifying leads. On top of that, you or your team can take over any conversation whenever you want or whenever it's needed, from a real-time panel. Complex or sensitive cases are also routed to a human automatically.",
+      faq1_q: "How does the WhatsApp AI agent work?",
+      faq1_a: "It connects to your WhatsApp Business number and responds using AI trained on your business's information. It can instantly answer frequently asked questions, take orders, book and confirm appointments, qualify and follow up with leads, send catalogs, prices, or reminders, and handle multiple conversations at once, 24 hours a day. Complex or sensitive cases are automatically routed to a human, and you or your team can take over any conversation in real time whenever you need to.",
       faq2_q: "Is the WhatsApp number mine or the agency's?",
       faq2_a: "The number is registered under your own Meta Business Manager, with futureIA as a partner admin so we can set up and maintain the system. That way you keep ownership of the channel, while the agency manages the infrastructure (server, automation workflows).",
       faq3_q: "How much does it cost and what's the payment model?",
@@ -711,7 +909,7 @@
       faq4_q: "Can I have full access to the system, or do I depend on the agency?",
       faq4_a: "It's possible to transfer the full infrastructure, but it costs significantly more, since futureIA's standard model is based on hosting and maintaining the system to guarantee stability and ongoing support.",
       faq5_q: "How long does it take to implement?",
-      faq5_a: "It depends on the complexity of the business (menu, catalog, appointment flows, integrations), but typically 1 to 2 weeks from defining the scope until the agent is live and tested.",
+      faq5_a: "It depends on the complexity of the business (menu, catalog, appointment flows, integrations), but typically 3 days to 1 week from defining the scope until the agent is live and tested.",
       contact_h2: "Ready to automate your business?",
       contact_p: "Message us on WhatsApp and let's talk about how AI can help you save time.",
       contact_btn: "💬 Chat on WhatsApp",
@@ -734,9 +932,10 @@
       if (el.hasAttribute('data-i18n-html')) el.innerHTML = val;
       else el.textContent = val;
     });
-    const msg = encodeURIComponent(translations[lang].wa_message);
     document.querySelectorAll('[data-wa-link]').forEach(a => {
-      a.href = `https://wa.me/18292162645?text=${msg}`;
+      const msgKey = a.getAttribute('data-wa-msg');
+      const text = (msgKey && translations[lang][msgKey]) ? translations[lang][msgKey] : translations[lang].wa_message;
+      a.href = `https://wa.me/18292162645?text=${encodeURIComponent(text)}`;
     });
     langToggle.textContent = lang === 'es' ? '🌐 EN' : '🌐 ES';
     localStorage.setItem('futureia_lang', lang);
@@ -747,6 +946,82 @@
 
   const savedLang = localStorage.getItem('futureia_lang') || (navigator.language.toLowerCase().startsWith('en') ? 'en' : 'es');
   setLang(savedLang);
+
+  function initDemoChat(chatEl) {
+    const toggle = chatEl.previousElementSibling;
+    const body = chatEl.querySelector('.demo-chat-body');
+    const resetBtn = chatEl.querySelector('.demo-reset');
+    let playing = false;
+
+    function t(key) { return translations[currentLang][key]; }
+    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+    function addMsg(text, who) {
+      const el = document.createElement('div');
+      el.className = 'demo-msg ' + who;
+      el.textContent = text;
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function addHook(text) {
+      const el = document.createElement('div');
+      el.className = 'demo-hook';
+      el.textContent = text;
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function typeThen(text, who) {
+      return new Promise(resolve => {
+        const el = document.createElement('div');
+        el.className = 'demo-typing';
+        el.innerHTML = '<span></span><span></span><span></span>';
+        body.appendChild(el);
+        body.scrollTop = body.scrollHeight;
+        setTimeout(() => {
+          el.remove();
+          addMsg(text, who);
+          resolve();
+        }, 1300);
+      });
+    }
+
+    async function play() {
+      if (playing) return;
+      playing = true;
+      body.innerHTML = '';
+      resetBtn.hidden = true;
+
+      await typeThen(t('demo_greeting'), 'bot');
+      await sleep(1100);
+      addMsg(t('demo_q1'), 'user');
+      await sleep(900);
+      await typeThen(t('demo_a1'), 'bot');
+      await sleep(1500);
+      addMsg(t('demo_q2'), 'user');
+      await sleep(900);
+      await typeThen(t('demo_a2'), 'bot');
+      await sleep(1500);
+      addMsg(t('demo_q3'), 'user');
+      await sleep(900);
+      await typeThen(t('demo_a3'), 'bot');
+      await sleep(1200);
+      addHook(t('demo_hook'));
+
+      resetBtn.hidden = false;
+      playing = false;
+    }
+
+    toggle.addEventListener('click', () => {
+      const isOpen = chatEl.classList.toggle('open');
+      if (isOpen) play();
+    });
+
+    resetBtn.addEventListener('click', play);
+  }
+
+  document.querySelectorAll('.demo-chat').forEach(initDemoChat);
 </script>
 
 <script>
